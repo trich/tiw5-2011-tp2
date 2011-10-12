@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="web-interface">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <dependent-module archiveName="modele-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/modele/modele">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="services-impl-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/services-impl/services-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="web-interface"/>
+        <property name="java-output-path" value="/web-interface/target/classes"/>
+    </wb-module>
+</project-modules>

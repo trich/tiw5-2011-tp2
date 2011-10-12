@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/ventecd"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://master-info.univ-lyon1.fr/M2TI/TIW5/ventecd">
+
+	<complexType name="AlbumContent">
+		<sequence>
+			<element name="titre" type="string"></element>
+			<element name="piste" type="tns:PisteContent" maxOccurs="unbounded"
+				minOccurs="1">
+			</element>
+			<element name="artiste" type="tns:ArtisteRef" minOccurs="0" maxOccurs="unbounded">
+			</element>
+		</sequence>
+		<attribute name="id" type="int" use="optional"></attribute>
+	</complexType>
+
+	<complexType name="ArtisteRef">
+		<attribute name="uri" type="string"></attribute>
+	</complexType>
+
+	<complexType name="PisteContent">
+		<sequence>
+			<element name="titre" type="string"></element>
+			<element name="contributeur" type="tns:ArtisteRef"
+				minOccurs="0" maxOccurs="unbounded">
+			</element>
+		</sequence>
+		<attribute name="duree" type="positiveInteger"></attribute>
+		<attribute name="numero" type="string"></attribute>
+	</complexType>
+
+	<element name="album" type="tns:AlbumContent"></element>
+
+    <element name="artiste" type="tns:ArtisteContent"></element>
+
+	<complexType name="ArtisteContent">
+		<sequence>
+			<element name="nom" type="string"></element>
+			<element name="album" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="id" type="int"></attribute>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="uri" type="string"></attribute>
+	</complexType>
+</schema>

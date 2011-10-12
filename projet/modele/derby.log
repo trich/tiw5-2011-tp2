@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Wed Oct 12 20:43:08 CEST 2011:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-0132-f971-f927-000000d37d50 
+on database directory C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\testDB  with class loader sun.misc.Launcher$AppClassLoader@13f5d07 
+Loaded from file:/C:/Users/Dahu/.m2/repository/org/apache/derby/derby/10.8.1.2/derby-10.8.1.2.jar
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_24-b07
+user.dir=C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
