@@ -33,7 +33,7 @@
 						<id>generate-sources</id>
 						<phase>generate-sources</phase>
 						<configuration>
-							<sourceRoot>/generated/cxf</sourceRoot>
+							<sourceRoot>target/generated/cxf</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
 									<wsdl>src/main/resources/album-data.wsdl</wsdl>
