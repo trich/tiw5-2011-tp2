@@ -105,10 +105,10 @@
                <!--Optional:-->
                <ven:titre>Come as you are</ven:titre>
                <!--Zero or more repetitions:-->
-               <ven:contributeur uri="2"/>
+               <!--<ven:contributeur uri="artiste2"/>-->
             </ven:piste>
             <!--Zero or more repetitions:-->
-            <ven:artiste uri="1"/>
+            <ven:artiste uri="artiste1"/>
          </arg0>
       </ser:addAlbumDescription>
    </soapenv:Body>
