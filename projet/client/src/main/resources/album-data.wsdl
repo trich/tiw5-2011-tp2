@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="AlbumDataService" targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/ventecd" version="1.0" xmlns:ns1="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:import namespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services"/>
+<xs:element name="album" type="ns1:album"/>
+<xs:element name="artiste" type="ns1:artisteRef"/>
+<xs:element name="contributeur" type="ns1:artisteRef"/>
+<xs:element name="piste" type="ns1:piste"/>
+<xs:element name="titre" type="xs:string"/>
+
+</xs:schema>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" version="1.0" xmlns:ns1="http://master-info.univ-lyon1.fr/M2TI/TIW5/ventecd" xmlns:tns="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:import namespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/ventecd"/>
+<xs:element name="addAlbumDescription" type="tns:addAlbumDescription"/>
+<xs:element name="getAlbumDescription" type="tns:getAlbumDescription"/>
+<xs:element name="getAlbumDescriptionResponse" type="tns:getAlbumDescriptionResponse"/>
+<xs:complexType name="addAlbumDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:album"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="album">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="ns1:titre"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:piste"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:artiste"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:long" use="required"/>
+  </xs:complexType>
+<xs:complexType name="piste">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="ns1:titre"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:contributeur"/>
+    </xs:sequence>
+    <xs:attribute name="numero" type="xs:int" use="required"/>
+    <xs:attribute name="duree" type="xs:int" use="required"/>
+  </xs:complexType>
+<xs:complexType name="artisteRef">
+    <xs:sequence/>
+    <xs:attribute name="uri" type="xs:string"/>
+  </xs:complexType>
+<xs:complexType name="getAlbumDescription">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAlbumDescriptionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:album"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAlbumDescription">
+    <wsdl:part element="tns:getAlbumDescription" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAlbumDescription">
+    <wsdl:part element="tns:addAlbumDescription" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAlbumDescriptionResponse">
+    <wsdl:part element="tns:getAlbumDescriptionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AlbumDataPortType">
+    <wsdl:operation name="addAlbumDescription">
+      <wsdl:input message="tns:addAlbumDescription" name="addAlbumDescription">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getAlbumDescription">
+      <wsdl:input message="tns:getAlbumDescription" name="getAlbumDescription">
+    </wsdl:input>
+      <wsdl:output message="tns:getAlbumDescriptionResponse" name="getAlbumDescriptionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AlbumDataServiceSoapBinding" type="tns:AlbumDataPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addAlbumDescription">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addAlbumDescription">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getAlbumDescription">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAlbumDescription">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAlbumDescriptionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlbumDataService">
+    <wsdl:port binding="tns:AlbumDataServiceSoapBinding" name="AlbumDataPort">
+      <soap:address location="http://localhost:8080/web-interface/services/AlbumDataService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
