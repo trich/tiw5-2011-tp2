@@ -1,5 +1,5 @@
 
-package fr.univ_lyon1.master_info.m2ti.tiw5.services;
+package tiw5.services;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

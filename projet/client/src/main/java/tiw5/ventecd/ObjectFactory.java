@@ -1,13 +1,13 @@
 
-package fr.univ_lyon1.master_info.m2ti.tiw5.ventecd;
+package tiw5.ventecd;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import fr.univ_lyon1.master_info.m2ti.tiw5.services.Album;
-import fr.univ_lyon1.master_info.m2ti.tiw5.services.ArtisteRef;
-import fr.univ_lyon1.master_info.m2ti.tiw5.services.Piste;
+import tiw5.services.Album;
+import tiw5.services.ArtisteRef;
+import tiw5.services.Piste;
 
 
 /**

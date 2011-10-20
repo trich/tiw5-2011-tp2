@@ -1,5 +1,5 @@
 
-package fr.univ_lyon1.master_info.m2ti.tiw5.services;
+package tiw5.services;
 
 import java.util.ArrayList;
 import java.util.List;
