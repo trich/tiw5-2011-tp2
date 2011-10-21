@@ -20,7 +20,7 @@ import javax.xml.ws.ResponseWrapper;
 public interface AlbumDataPortType {
 
     @Oneway
-    @RequestWrapper(localName = "addAlbumDescription", targetNamespace = "http://master-info.univ-lyon1.fr/M2TI/TIW5/services", className = "fr.univ_lyon1.master_info.m2ti.tiw5.services.AddAlbumDescription")
+    @RequestWrapper(localName = "addAlbumDescription", targetNamespace = "http://master-info.univ-lyon1.fr/M2TI/TIW5/services", className = "tiw5.services.AddAlbumDescription")
     @WebMethod
     public void addAlbumDescription(
         @WebParam(name = "arg0", targetNamespace = "")
@@ -28,9 +28,9 @@ public interface AlbumDataPortType {
     );
 
     @WebResult(name = "return", targetNamespace = "")
-    @RequestWrapper(localName = "getAlbumDescription", targetNamespace = "http://master-info.univ-lyon1.fr/M2TI/TIW5/services", className = "fr.univ_lyon1.master_info.m2ti.tiw5.services.GetAlbumDescription")
+    @RequestWrapper(localName = "getAlbumDescription", targetNamespace = "http://master-info.univ-lyon1.fr/M2TI/TIW5/services", className = "tiw5.services.GetAlbumDescription")
     @WebMethod
-    @ResponseWrapper(localName = "getAlbumDescriptionResponse", targetNamespace = "http://master-info.univ-lyon1.fr/M2TI/TIW5/services", className = "fr.univ_lyon1.master_info.m2ti.tiw5.services.GetAlbumDescriptionResponse")
+    @ResponseWrapper(localName = "getAlbumDescriptionResponse", targetNamespace = "http://master-info.univ-lyon1.fr/M2TI/TIW5/services", className = "tiw5.services.GetAlbumDescriptionResponse")
     public tiw5.services.Album getAlbumDescription(
         @WebParam(name = "arg0", targetNamespace = "")
         long arg0

@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
  
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
- 
+
 import tiw5.modele.Album;
 import tiw5.modele.Artiste;
  

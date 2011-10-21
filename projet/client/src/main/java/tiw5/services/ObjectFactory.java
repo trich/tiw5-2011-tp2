@@ -10,8 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the fr.univ_lyon1.master_info.m2ti.tiw5.services package. 
- * <p>An ObjectFactory allows you to programatically 
+ * generated in the tiw5bjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
  * content can consist of schema derived interfaces 
@@ -29,8 +28,7 @@ public class ObjectFactory {
     private final static QName _GetAlbumDescriptionResponse_QNAME = new QName("http://master-info.univ-lyon1.fr/M2TI/TIW5/services", "getAlbumDescriptionResponse");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: fr.univ_lyon1.master_info.m2ti.tiw5.services
-     * 
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tiw5.services
      */
     public ObjectFactory() {
     }

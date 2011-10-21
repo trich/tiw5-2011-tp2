@@ -13,8 +13,7 @@ import tiw5.services.Piste;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the fr.univ_lyon1.master_info.m2ti.tiw5.ventecd package. 
- * <p>An ObjectFactory allows you to programatically 
+ * generated in the tiw5jectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
  * content can consist of schema derived interfaces 
@@ -34,7 +33,7 @@ public class ObjectFactory {
     private final static QName _Titre_QNAME = new QName("http://master-info.univ-lyon1.fr/M2TI/TIW5/ventecd", "titre");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: fr.univ_lyon1.master_info.m2ti.tiw5.ventecd
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tiw5.ventecd
      * 
      */
     public ObjectFactory() {
