@@ -25,7 +25,6 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Commande_QNAME = new QName("http://master-info.univ-lyon1.fr/M2TI/TIW5/services", "commande");
-    private final static QName _AssureCapaciteResponse_QNAME = new QName("http://master-info.univ-lyon1.fr/M2TI/TIW5/services", "assureCapaciteResponse");
     private final static QName _Disponible_QNAME = new QName("http://master-info.univ-lyon1.fr/M2TI/TIW5/services", "disponible");
     private final static QName _DisponibleResponse_QNAME = new QName("http://master-info.univ-lyon1.fr/M2TI/TIW5/services", "disponibleResponse");
     private final static QName _AssureCapacite_QNAME = new QName("http://master-info.univ-lyon1.fr/M2TI/TIW5/services", "assureCapacite");
@@ -35,14 +34,6 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link CoupleAlbumQuantite }
-     * 
-     */
-    public CoupleAlbumQuantite createCoupleAlbumQuantite() {
-        return new CoupleAlbumQuantite();
     }
 
     /**
@@ -78,11 +69,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AssureCapaciteResponse }
+     * Create an instance of {@link CoupleAlbumQuantite }
      * 
      */
-    public AssureCapaciteResponse createAssureCapaciteResponse() {
-        return new AssureCapaciteResponse();
+    public CoupleAlbumQuantite createCoupleAlbumQuantite() {
+        return new CoupleAlbumQuantite();
     }
 
     /**
@@ -92,15 +83,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://master-info.univ-lyon1.fr/M2TI/TIW5/services", name = "commande")
     public JAXBElement<Commande> createCommande(Commande value) {
         return new JAXBElement<Commande>(_Commande_QNAME, Commande.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AssureCapaciteResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://master-info.univ-lyon1.fr/M2TI/TIW5/services", name = "assureCapaciteResponse")
-    public JAXBElement<AssureCapaciteResponse> createAssureCapaciteResponse(AssureCapaciteResponse value) {
-        return new JAXBElement<AssureCapaciteResponse>(_AssureCapaciteResponse_QNAME, AssureCapaciteResponse.class, null, value);
     }
 
     /**
