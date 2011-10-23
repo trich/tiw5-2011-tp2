@@ -3,6 +3,7 @@ package tiw5.services.impl;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
@@ -59,6 +60,7 @@ public class StockService {
 	 * 			représentant plusieurs albums ainsi que la quantité devant être assurée
 	 * @return
 	 */
+	@Oneway
 	@WebMethod
 	public void assureCapacite(List<CoupleAlbumQuantite> couples){
 		Iterator<CoupleAlbumQuantite> it = couples.iterator();
@@ -71,52 +73,61 @@ public class StockService {
 		//pour chaque couple
 		while(it.hasNext()){
 			couple = it.next();
-			//on regarde si il est disponible (cela créé
+			//on regarde si il est disponible (cela créé au moins les entrées pour 
+			//		les albums qui n'étaient pas déjà en stock)
+			//on aurait pu éviter l'utilisation de disponible car il y a redondance
+			//		de code. Il aurait fallu que disponible soit une méthode ou bien
+			//		exporter le code de disponible ici
 			if(!disponible(couple.getAlbumId())){
 				stock = em.find(Stock.class, couple.getAlbumId());
+				stock.setId(couple.getQuantite());
 			}
+			//si il existait déjà
 			else{
-				log.info("did not found {}",couple.getAlbumId());
-				em.persist(couple);
+				stock = em.find(Stock.class, couple.getAlbumId());
+				//on test si la quantité est suffisante
+				if(stock.getQuantite() < couple.getQuantite()){
+					stock.setQuantite(couple.getQuantite());
+				}
 			}
+			//on met à jour
+			em.merge(stock);
 		}
-		
-	}
-	
-	@WebMethod void commande(List<Integer> albumIds){
-		
-	}
-	
-	/*
-	@WebMethod
-	public Album getAlbumDescription(long albumId) {
-		EntityManager em = Persistence.createEntityManagerFactory("etudiant")
-				.createEntityManager();
-		Album album = em.find(Album.class, albumId);
-		return album;
-	}
- 
-	@Oneway
-	@WebMethod
-	public void addAlbumDescription(Album album) {
-		EntityManager em = Persistence.createEntityManagerFactory("etudiant")
-				.createEntityManager();
-		em.getTransaction().begin();
-		if (em.find(Album.class, album.getId()) != null) {
-			log.info("found {}",album.getId());
-			em.merge(album);
-		} else {
-			log.info("did not found {}",album.getId());
-			em.persist(album);
-		}
-		for(Artiste a : album.getArtistes()) {
-			if (em.find(Artiste.class, a.getUri()) != null) {
-				em.merge(a);
-			} else {
-				em.persist(a);
-			}
-		}
+		log.info("fin assureCapacite");
 		em.getTransaction().commit();
 	}
- */
+
+	@Oneway
+	@WebMethod void commande(List<Long> albumIds){
+		Iterator<Long> it = albumIds.iterator();
+		Long albumId;
+		Stock stock;
+		EntityManager em = Persistence.createEntityManagerFactory("etudiant")
+		.createEntityManager();
+		em.getTransaction().begin();
+		
+		//pour chaque albumId
+		while(it.hasNext()){
+			albumId = it.next();
+			//on regarde si il n'est pas encore en stock
+			if(!disponible(albumId)){
+				log.info("did not found {}",albumId);
+			}
+			//si il est en stock
+			else{
+				stock = em.find(Stock.class, albumId);
+				//on reagrde si il n'y a plus aucun album pour la commande
+				if(stock.getQuantite() < 1){
+					log.info("no more album {}",albumId);
+				}
+				else{
+					//si l'album est bien disponible alors on a récupère un
+					stock.setQuantite(stock.getQuantite() - 1);
+					em.merge(stock); //et on met à jour
+				}
+			}
+		}
+		log.info("fin commande");
+		em.getTransaction().commit();
+	}
 }
