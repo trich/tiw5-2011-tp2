@@ -3,8 +3,10 @@ package tiw5.modele;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
+@XmlType(propOrder={"albumId","quantite"})
 public class Stock {
 	
 	/**
@@ -14,7 +16,7 @@ public class Stock {
 	@GeneratedValue
 	private long id;
 	
-	private Album album;
+	private long albumId;
 	
 	private long quantite;
 	
@@ -33,12 +35,12 @@ public class Stock {
 		return id;
 	}
 
-	public void setAlbum(Album album) {
-		this.album = album;
+	public void setAlbumId(long albumId) {
+		this.albumId = albumId;
 	}
 
-	public Album getAlbum() {
-		return album;
+	public long getAlbumId() {
+		return albumId;
 	}
 
 	public void setQuantite(long quantite) {
