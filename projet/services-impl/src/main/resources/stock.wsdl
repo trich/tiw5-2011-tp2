@@ -1,39 +1,58 @@
-<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="StockService" targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="StockService" targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" 
+	xmlns:ns1="http://schemas.xmlsoap.org/soap/http" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:tns="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
   <wsdl:types>
 
-<xs:schema elementFormDefault="unqualified" targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" version="1.0" xmlns:tns="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<!--
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" version="1.0" 
+	xmlns:tns="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+<!-- lignes en commentaires pour cause de doublons. Je n'ai pas exactement situé le problème..
 <xs:element name="disponible" type="tns:disponible"/>
 <xs:element name="disponibleResponse" type="tns:disponibleResponse"/>
 <xs:element name="assureCapacite" type="tns:assureCapacite"/>
 <xs:element name="commande" type="tns:commande"/>
 -->
-<xs:complexType name="disponible">
+
+<xs:element name="disponible">
+<xs:complexType>
 	<xs:sequence>
 		<xs:element minOccurs="0" name="arg0" type="xs:long"/>
 	</xs:sequence>
 </xs:complexType>
-<xs:complexType name="disponibleResponse">
+</xs:element>
+<xs:element name="disponibleResponse">
+<xs:complexType>
 	<xs:sequence>
 		<xs:element minOccurs="0" name="return" type="xs:boolean"/>
 	</xs:sequence>
 </xs:complexType>
-<xs:complexType name="assureCapacite">
+</xs:element>
+<xs:element name="assureCapacite">
+<xs:complexType>
 	<xs:sequence>
 		<xs:element minOccurs="0" name="arg0" type="tns:coupleAlbumQuantite"/>
 	</xs:sequence>
 </xs:complexType>
+</xs:element>
 <xs:complexType name="coupleAlbumQuantite">
 	<xs:sequence>
 		<xs:element name="albumId" type="xs:long"/>
 		<xs:element name="quantite" type="xs:long"/>
 	</xs:sequence>
 </xs:complexType>
-<xs:complexType name="commande">
+<xs:element name="commande">
+<xs:complexType>
 	<xs:sequence>
 		<xs:element minOccurs="0" name="arg0" type="xs:long"/>
 	</xs:sequence>
 </xs:complexType>
+</xs:element>
 
 </xs:schema>
 

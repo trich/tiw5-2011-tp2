@@ -4,16 +4,17 @@ package fr.univ_lyon1.master_info.m2ti.tiw5.services;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for disponibleResponse complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="disponibleResponse">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -27,9 +28,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "disponibleResponse", propOrder = {
+@XmlType(name = "", propOrder = {
     "_return"
 })
+@XmlRootElement(name = "disponibleResponse")
 public class DisponibleResponse {
 
     @XmlElement(name = "return")
