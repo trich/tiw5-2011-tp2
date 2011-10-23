@@ -20,25 +20,32 @@
 -->
 
 <xs:element name="disponible">
-<xs:complexType>
-	<xs:sequence>
-		<xs:element minOccurs="0" name="arg0" type="xs:long"/>
-	</xs:sequence>
-</xs:complexType>
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
 </xs:element>
 <xs:element name="disponibleResponse">
-<xs:complexType>
-	<xs:sequence>
-		<xs:element minOccurs="0" name="return" type="xs:boolean"/>
-	</xs:sequence>
-</xs:complexType>
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
 </xs:element>
 <xs:element name="assureCapacite">
-<xs:complexType>
-	<xs:sequence>
-		<xs:element minOccurs="0" name="arg0" type="tns:coupleAlbumQuantite"/>
-	</xs:sequence>
-</xs:complexType>
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:coupleAlbumQuantite"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="commande">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
 </xs:element>
 <xs:complexType name="coupleAlbumQuantite">
 	<xs:sequence>
@@ -46,13 +53,6 @@
 		<xs:element name="quantite" type="xs:long"/>
 	</xs:sequence>
 </xs:complexType>
-<xs:element name="commande">
-<xs:complexType>
-	<xs:sequence>
-		<xs:element minOccurs="0" name="arg0" type="xs:long"/>
-	</xs:sequence>
-</xs:complexType>
-</xs:element>
 
 </xs:schema>
 
@@ -110,7 +110,7 @@
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="commande">
-      <soap:operation soapAction="" style="document"/>
+      <soap:operation style="document"/>
       <wsdl:input name="commande">
         <soap:body use="literal"/>
       </wsdl:input>

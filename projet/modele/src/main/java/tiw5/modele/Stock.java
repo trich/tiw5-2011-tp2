@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlType;
 
 @Entity
-@XmlType(propOrder={"albumId","quantite"})
 public class Stock {
 	
 	/**

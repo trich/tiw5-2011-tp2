@@ -9,6 +9,7 @@
         <class>tiw5.modele.Album</class>
         <class>tiw5.modele.Piste</class>
         <class>tiw5.modele.Artiste</class>
+        <class>tiw5.modele.Stock</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

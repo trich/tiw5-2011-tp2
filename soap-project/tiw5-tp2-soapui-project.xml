@@ -97,7 +97,7 @@
    <soapenv:Body>
       <ser:addAlbumDescription>
          <!--Optional:-->
-         <arg0 id="1">
+         <arg0 id="2">
             <!--Optional:-->
             <ven:titre>nevermind</ven:titre>
             <!--Zero or more repetitions:-->
@@ -108,7 +108,7 @@
                <!--<ven:contributeur uri="artiste2"/>-->
             </ven:piste>
             <!--Zero or more repetitions:-->
-            <ven:artiste uri="artiste1"/>
+            <ven:artiste uri="1"/>
          </arg0>
       </ser:addAlbumDescription>
    </soapenv:Body>
@@ -116,7 +116,113 @@
    <soapenv:Header/>
    <soapenv:Body>
       <ser:getAlbumDescription>
-         <arg0>1</arg0>
+         <arg0>2</arg0>
       </ser:getAlbumDescription>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://master-info.univ-lyon1.fr/M2TI/TIW5/services/AlbumDataPortType/getAlbumDescription"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://master-info.univ-lyon1.fr/M2TI/TIW5/services/AlbumDataPortType/getAlbumDescription"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="StockServiceSoapBinding" type="wsdl" bindingName="{http://master-info.univ-lyon1.fr/M2TI/TIW5/services}StockServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/web-interface/services/StockService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/web-interface/services/StockService?wsdl"><con:part><con:url>http://localhost:8080/web-interface/services/StockService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="StockService" targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://master-info.univ-lyon1.fr/M2TI/TIW5/services" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="assureCapacite" nillable="true" type="xs:anyType"/>
+      <xs:element name="commande" nillable="true" type="xs:anyType"/>
+      <xs:element name="disponible" nillable="true" type="xs:anyType"/>
+      <xs:element name="disponibleResponse" nillable="true" type="xs:anyType"/>
+      <xs:complexType name="disponible">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="disponibleResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="commande">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="assureCapacite">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="tns:coupleAlbumQuantite"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="coupleAlbumQuantite">
+        <xs:sequence>
+          <xs:element name="albumId" type="xs:long"/>
+          <xs:element name="quantite" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="commande">
+    <wsdl:part element="tns:commande" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="disponible">
+    <wsdl:part element="tns:disponible" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="disponibleResponse">
+    <wsdl:part element="tns:disponibleResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assureCapacite">
+    <wsdl:part element="tns:assureCapacite" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StockPortType">
+    <wsdl:operation name="disponible">
+      <wsdl:input message="tns:disponible" name="disponible"></wsdl:input>
+      <wsdl:output message="tns:disponibleResponse" name="disponibleResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="commande">
+      <wsdl:input message="tns:commande" name="commande"></wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="assureCapacite">
+      <wsdl:input message="tns:assureCapacite" name="assureCapacite"></wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StockServiceSoapBinding" type="tns:StockPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="disponible">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="disponible">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="disponibleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="commande">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="commande">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="assureCapacite">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="assureCapacite">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StockService">
+    <wsdl:port binding="tns:StockServiceSoapBinding" name="StockPort">
+      <soap:address location="http://localhost:8080/web-interface/services/StockService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/web-interface/services/StockService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="assureCapacite" bindingOperationName="assureCapacite" type="One-Way" inputName="assureCapacite" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/web-interface/services/StockService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://master-info.univ-lyon1.fr/M2TI/TIW5/services">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:assureCapacite>(2,1)</ser:assureCapacite>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://master-info.univ-lyon1.fr/M2TI/TIW5/services/StockPortType/assureCapacite"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="commande" bindingOperationName="commande" type="One-Way" inputName="commande" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/web-interface/services/StockService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://master-info.univ-lyon1.fr/M2TI/TIW5/services">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:commande>(2,2)</ser:commande>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://master-info.univ-lyon1.fr/M2TI/TIW5/services/StockPortType/commande"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="disponible" bindingOperationName="disponible" type="Request-Response" outputName="disponibleResponse" inputName="disponible" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/web-interface/services/StockService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://master-info.univ-lyon1.fr/M2TI/TIW5/services">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:disponible>
+<arg0 id="2">
+</arg0>
+	</ser:disponible>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://master-info.univ-lyon1.fr/M2TI/TIW5/services/StockPortType/disponible"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

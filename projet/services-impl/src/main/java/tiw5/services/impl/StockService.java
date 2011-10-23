@@ -35,14 +35,15 @@ public class StockService {
 		.createEntityManager();
 		em.getTransaction().begin();
 		Stock stock = em.find(Stock.class, albumId); //on regarde si l'album est en stock
-
+		Stock newStock;
+		
 		//si l'album n'a jamais été en stock
 		if(stock == null){
 			log.info("did not found {}",albumId);
-			stock = new Stock();
-			stock.setId(albumId);
-			stock.setQuantite(0);
-			em.persist(stock); //si c'est le cas, on l'ajoute au stock avec quantité 0
+			newStock = new Stock();
+			newStock.setId(albumId);
+			newStock.setQuantite(0);
+			em.persist(newStock); //si c'est le cas, on l'ajoute au stock avec quantité 0
 			em.getTransaction().commit();
 			return false;
 		}
@@ -98,7 +99,8 @@ public class StockService {
 	}
 
 	@Oneway
-	@WebMethod void commande(List<Long> albumIds){
+	@WebMethod
+	public void commande(List<Long> albumIds){
 		Iterator<Long> it = albumIds.iterator();
 		Long albumId;
 		Stock stock;

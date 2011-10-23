@@ -1,5 +1,5 @@
 #surefire
-#Sun Oct 23 16:54:36 CEST 2011
+#Sun Oct 23 18:09:11 CEST 2011
 testClassesDirectory=C\:\\Users\\Dahu\\Desktop\\Master\\TIW5\\tiw5-2011-tp2\\projet\\client\\target\\test-classes
 classPathUrl.2=C\:\\Users\\Dahu\\.m2\\repository\\junit\\junit\\3.8.1\\junit-3.8.1.jar
 useManifestOnlyJar=true

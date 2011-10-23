@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.154" errors="0" skipped="0" tests="2" name="tiw5.modele.TestXMLMappings">
+<testsuite failures="0" time="0.665" errors="0" skipped="0" tests="2" name="tiw5.modele.TestXMLMappings">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0\jre\bin"/>
@@ -20,7 +20,7 @@
     <property name="basedir" value="C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0\jre\lib\endorsed"/>
     <property name="os.arch" value="x86"/>
-    <property name="surefire.real.class.path" value="C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\surefire\surefirebooter8254065005883634303.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\surefire\surefirebooter4254721174464623671.jar"/>
     <property name="java.io.tmpdir" value="C:\Users\Dahu\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="32"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.7.0\jre"/>
-    <property name="sun.java.command" value="C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\surefire\surefirebooter8254065005883634303.jar C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\surefire\surefire7120388967574715607tmp C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\surefire\surefire8868495138269707286tmp"/>
+    <property name="sun.java.command" value="C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\surefire\surefirebooter4254721174464623671.jar C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\surefire\surefire238028597939850128tmp C:\Users\Dahu\Desktop\Master\TIW5\tiw5-2011-tp2\projet\modele\target\surefire\surefire7431803322105408027tmp"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="fr"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,6 +61,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase time="0.131" classname="tiw5.modele.TestXMLMappings" name="testArtisteMapping"/>
-  <testcase time="0.021" classname="tiw5.modele.TestXMLMappings" name="testAlbumMapping"/>
+  <testcase time="0.633" classname="tiw5.modele.TestXMLMappings" name="testArtisteMapping"/>
+  <testcase time="0.03" classname="tiw5.modele.TestXMLMappings" name="testAlbumMapping"/>
 </testsuite>
